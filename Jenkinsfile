@@ -1,5 +1,5 @@
 pipeline{ 
-    agent any 
+    agent {any} 
     options { 
       buildDiscarder(logRotator(numToKeepStr: '15'))
      disableConcurrentBuilds() 
@@ -13,7 +13,7 @@ pipeline{
          stages{ 
          stage("Docker login and push"){
          steps{ 
-          sh "docker login -u shitesh3796 -p Kunal@0315" 
+          sh "docker login -u shitesh3796 -p Kunal@0315." 
           sh ''' 
           cd vote 
           docker build -t shitesh3796/vote:v${BUILD_NUMBER} . 
